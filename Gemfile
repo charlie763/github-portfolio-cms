@@ -5,9 +5,9 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
-gem 'sinatra'
-gem 'activerecord', :require => "active_record"
+gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'sinatra'
 gem 'sqlite3'
 gem 'require_all'
 gem 'bcrypt'
