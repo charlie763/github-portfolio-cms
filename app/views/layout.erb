@@ -3,5 +3,12 @@
   <head></head>
   <body>
     <%= yield %>
+    <br>
+    <br>
+    <% if logged_in? %>
+      <form method="POST" action="/logout">
+        <button type="submit">Log Out</button>
+      </form>
+    <% end %>
   </body>
 <html>

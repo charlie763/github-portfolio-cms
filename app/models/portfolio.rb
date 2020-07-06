@@ -1,4 +1,4 @@
 class Portfolio < ActiveRecord::Base
   belongs_to :user
-  has_many :repos, through: :users
+  has_and_belongs_to_many :repos
 end

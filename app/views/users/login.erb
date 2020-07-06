@@ -1,5 +1,8 @@
 <h2>Welcome to the Github Portfolio Builder</h2>
 <h4>Log In: </h4>
+<% if @invalid_input %>
+ <p>Incorrect username or password!</p>
+<% end %>
 <form method="POST" action="/login">
   <label>Username: </label><input type="text" name="username"><br>
   <label>Password: </label><input type="password" name="password"><br>

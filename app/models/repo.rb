@@ -1,4 +1,4 @@
 class Repo < ActiveRecord::Base
   belongs_to :user
-  has_many :portfolios, through: :users
+  has_and_belongs_to_many :portfolios
 end

@@ -4,14 +4,18 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    if user = User.find_by(username: params[:username]).authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/'
     else
       @invalid_input = true
       erb :'users/login'
     end
+  end
+
+  post '/logout' do
+    session.clear
+    redirect '/login'
   end
 
   get '/signup' do

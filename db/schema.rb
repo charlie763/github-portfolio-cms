@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_170331) do
+ActiveRecord::Schema.define(version: 2020_07_06_220705) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "portfolios_repos", force: :cascade do |t|
+    t.integer "portfolio_id"
+    t.integer "repo_id"
+    t.index ["portfolio_id"], name: "index_portfolios_repos_on_portfolio_id"
+    t.index ["repo_id"], name: "index_portfolios_repos_on_repo_id"
   end
 
   create_table "repos", force: :cascade do |t|
