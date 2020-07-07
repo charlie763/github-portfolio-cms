@@ -1,4 +1,5 @@
 require 'dotenv/load'
+require 'open-uri'
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'

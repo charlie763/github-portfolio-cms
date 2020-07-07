@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_220705) do
+ActiveRecord::Schema.define(version: 2020_07_06_230100) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_220705) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "github_url"
+    t.string "github_username"
   end
 
 end
