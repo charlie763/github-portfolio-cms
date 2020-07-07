@@ -18,7 +18,7 @@ class GithubApiResponse
       page += 1
     end
 
-    desired_keys = ["name", "html_url", "description", "created_at", "updated_at"]
+    desired_keys = ["name", "html_url", "description", "created_at", "updated_at", "id"]
     full_response.map do |repo| 
       repo.select{|k,v| desired_keys.include?(k)}
     end

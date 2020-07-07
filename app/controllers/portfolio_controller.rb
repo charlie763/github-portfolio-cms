@@ -40,6 +40,7 @@ class PortfolioController < ApplicationController
       @repos = github_repos.map{|repo_hash| Repo.create(
         name: repo_hash["name"],
         github_url: repo_hash["html_url"],
+        github_id: repo_hash["id"],
         description: repo_hash["description"],
         created_at: repo_hash["created_at"],
         updated_at: repo_hash["updated_at"]
