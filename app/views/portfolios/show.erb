@@ -1,0 +1,16 @@
+<h2>Portfolio <%= @portfolio.name %></h2>
+<p>Created: <%= @portfolio.created_at %></p>
+
+<% @portfolio.repos.each do |repo| %>
+  <h4><%= repo.name %></h4>
+  <label>Created: </label><%= repo.created_at %><br>  
+  <label>Last Updated: </label><%= repo.updated_at %><br>
+  <label>Github_Url: </label><a href="<%= repo.github_url %>"><%= repo.github_url %></a><br>
+  <label>Description: </label><%= repo.description %><br>
+  <a href="/repos/<%=repo.id%>/edit">Edit Description</a>
+  <br>
+  <br>
+<% end %>
+
+<a href="/portfolios/<%=@portfolio.id%>/edit">Edit Portfolio</a>
+<a href="/portfolios">View All Portfolios</a>

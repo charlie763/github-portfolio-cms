@@ -16,7 +16,7 @@ class PortfolioController < ApplicationController
     redirect_if_not_user
 
     @portfolio = Portfolio.new(params)
-    @portfolio.user = User.find(session[:user_id])
+    @portfolio.user = current_user
     @portfolio.save
 
     redirect "portfolios/#{@portfolio.id}/edit"
@@ -24,13 +24,16 @@ class PortfolioController < ApplicationController
 
   get '/portfolios/:id' do
     redirect_if_not_user
+    @portfolio = current_portfolio
+
+    erb :'portfolios/show'
   end
 
   get '/portfolios/:id/edit' do
     redirect_if_not_user
 
-    user = User.find(session[:user_id])
-    @portfolio = Portfolio.find_by(user: user)
+    user = current_user
+    @portfolio = current_portfolio
     if !@portfolio.repos.empty?
       @repos = @portfolio.repos
     elsif repos = Repo.where(user: user)
@@ -44,8 +47,16 @@ class PortfolioController < ApplicationController
 
   patch '/portfolios/:id' do
     redirect_if_not_user
+    #params = {"_method"=>"PATCH", "portfolio"=>{"name"=>""}, "repos"=>{"17"=>"on", "20"=>"on"}, "id"=>"1"}
 
-    binding.pry
+    portfolio = current_portfolio
+    portfolio.update(name: params[:name]) unless params[:name] == ""
+    portfolio.repos.clear
+    params[:repos].keys.each do |repo_id|
+      portfolio.repos << Repo.find(repo_id.to_i)
+    end
+  
+    redirect "/portfolios/#{portfolio.id}"
   end
 
   delete '/portfolios/:id' do

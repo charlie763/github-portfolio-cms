@@ -3,10 +3,11 @@
 
 <form method="POST" action="/portfolios/<%= @portfolio.id %>">
   <input type="hidden" name="_method" value="PATCH">
-  <label>Update Name: </label><input type="text" name="portfolio[name]" placeholder="<%= @portfolio.name %>"><br>
+  <label>Update Name: </label><input type="text" name="name" placeholder="<%= @portfolio.name %>"><br>
+  <p>Select repos to include in your portfolio:</p>
   <ul>
     <% @repos.each do |repo| %>
-      <li id="list_item_<%= repo.id %>"><input type="checkbox" name="repos[<%= repo.id %>]">
+      <li id="list_item_<%= repo.id %>"><input type="checkbox" <%= "checked" if @portfolio.repos.include?(repo) %> name="repos[<%= repo.id %>]">
           <span><%= repo.name %></span>
           <button type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
       </li>
