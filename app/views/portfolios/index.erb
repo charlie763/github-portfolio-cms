@@ -2,9 +2,9 @@
   <h2>You haven't created any portfolios yet</h2>
 <% else %>
   <% @portfolios.each do |portfolio|%>
-    <h4><%= @portfolio.name %></h4>    
-    <label>Created: </label><%= @portfolio.created_at %><br>
-    <a href="/portfolios/<%= @portfolio.id %>">View Portfolio Details</a><br>    
+    <h4><%= portfolio.name %></h4>    
+    <label>Created: </label><%= portfolio.created_at %><br>
+    <a href="/portfolios/<%= portfolio.id %>">View Portfolio Details</a><br>    
   <% end %>
 <% end %>
 <br>

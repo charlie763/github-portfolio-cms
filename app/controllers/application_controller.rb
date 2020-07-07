@@ -4,8 +4,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "#{ENV['SESSION_SECRET']}"
     set :views, "app/views"
   end
-  
-  
 
   get '/' do
     if logged_in?
