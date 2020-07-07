@@ -25,7 +25,7 @@ class PortfolioController < ApplicationController
   get '/portfolios/:id' do
     redirect_if_not_user
     @portfolio = current_portfolio
-
+    session[:last_viewed_portfolio_id] = params[:id]
     erb :'portfolios/show'
   end
 
@@ -47,7 +47,6 @@ class PortfolioController < ApplicationController
 
   patch '/portfolios/:id' do
     redirect_if_not_user
-    #params = {"_method"=>"PATCH", "portfolio"=>{"name"=>""}, "repos"=>{"17"=>"on", "20"=>"on"}, "id"=>"1"}
 
     portfolio = current_portfolio
     portfolio.update(name: params[:name]) unless params[:name] == ""
@@ -61,5 +60,8 @@ class PortfolioController < ApplicationController
 
   delete '/portfolios/:id' do
     redirect_if_not_user
+
+    current_portfolio.delete
+    redirect '/portfolios'    
   end
 end
