@@ -1,13 +1,39 @@
-<h4>Sign Up: </h4>
-<% if @invalid_input %>
- <p>Please fill out both a username and password!</p>
-<% end %>
-
-<form method="POST" action="/signup">
-  <label>Username: </label><input type="text" name="username"><br>
-  <label>Password: </label><input type="password" name="password"><br>
-  <label>GitHub Username: </label><input type="text" name="github_username"><br>
-  <button type="submit">Sign Up</button>
-</form>
-
-<p>Or <a href="/login">Log In</a> if you already have an account.</p>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-12">
+    <div class="row justify-content-center pt-5 pb-2">
+      <div class="col-md-8 col-10">
+        <h4 class="text-white my-3">Sign Up:</h4>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-10">
+        <% if @invalid_input %>
+          <p>Please fill out both a username and password!</p>
+        <% end %>
+        <form method="POST" action="/signup">
+          <div class="form-group">
+            <label class="text-linen" for="username-input">Username: </label>
+            <input id="username-input" class="form-control" type="text" name="username">
+          </div>
+          <div class="form-group">
+            <label class="text-linen" for="password-input">Password: </label>
+            <input id="password-input" class="form-control" type="password" name="password">
+          </div>
+          <div class="form-group">
+            <label class="text-linen" for="github-input">GitHub Username: </label>
+            <input id="github-input" class="form-control" type="text" name="github_username">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-md" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <br>
+        <p class="text-linen">Or <a href="/login">Log In</a> if you already have an account.</p>
+      </div>
+    </div>
+  </div>
+</div>
