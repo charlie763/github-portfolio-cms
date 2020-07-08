@@ -1,12 +1,35 @@
-<h2>Welcome to the Github Portfolio Builder</h2>
-<h4>Log In: </h4>
-<% if @invalid_input %>
- <p>Incorrect username or password!</p>
-<% end %>
-<form method="POST" action="/login">
-  <label>Username: </label><input type="text" name="username"><br>
-  <label>Password: </label><input type="password" name="password"><br>
-  <button type="submit">Log In</button>
-</form>
-
-<p>Or <a href="/signup">Sign Up</a> if you don't have an account.</p>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-12">
+    <div class="row justify-content-center pt-5 pb-4">
+      <div class="col-auto">
+        <h2 class="text-white my-3">Welcome to the Github Portfolio Builder</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-10">
+        <% if @invalid_input %>
+        <p class="text-warning">Incorrect username or password!</p>
+        <% end %>
+        <form method="POST" action="/login">
+          <div class="form-group">
+            <label class="text-linen" for="username-input">Username: </label>
+            <input id="username-input" class="form-control" type="text" name="username">
+          </div>
+          <div class="form-group">
+            <label class="text-linen" for="password-input">Password: </label>
+            <input id="password-input" class="form-control" type="password" name="password">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-md" type="submit">Log In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <br>
+        <p class="text-linen">Or <a href="/signup">Sign Up</a> if you don't have an account.</p>
+      </div>
+    </div>
+  </div>
+</div>
