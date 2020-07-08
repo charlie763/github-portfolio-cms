@@ -5,6 +5,7 @@
   <input type="hidden" name="_method" value="PATCH">
   <label>Update Name: </label><input type="text" name="name" placeholder="<%= @portfolio.name %>"><br>
   <p>Select repos to include in your portfolio:</p>
+  <a href="/portfolios/<%= @portfolio.id %>/edit?refresh_repos=true">Refresh Github Repos</a>
   <ul>
     <% @repos.each do |repo| %>
       <li id="list_item_<%= repo.id %>"><input type="checkbox" <%= "checked" if @portfolio.repos.include?(repo) %> name="repos[<%= repo.id %>]">
@@ -13,6 +14,30 @@
       </li>
    <% end %>
   </ul>
+
+  <% unless @new_repos.empty? %>
+    <label>New Repos</label>
+    <ul>
+      <% @new_repos.each do |repo| %>
+        <li id="list_item_<%= repo.id %>"><input type="checkbox" name="repos[<%= repo.id %>]">
+            <span><%= repo.name %></span>
+            <button type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
+        </li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <% unless @unselected_repos.empty? %>
+    <label>Unselected Repos</label>
+    <ul>
+      <% @unselected_repos.each do |repo| %>
+        <li id="list_item_<%= repo.id %>"><input type="checkbox" name="repos[<%= repo.id %>]">
+            <span><%= repo.name %></span>
+            <button type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
+        </li>
+    <% end %>
+    </ul>
+  <% end %>
   <br>
   <button type="submit">Save</button>
 </form>

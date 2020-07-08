@@ -1,0 +1,37 @@
+
+dd {
+  margin-left: .5rem;
+  margin-bottom: 0;
+}
+
+dt {
+  margin-bottom: .25rem;
+}
+
+.bg-ice {
+  background-color: #99D3DF!important;
+}
+
+.bg-linen {
+  background-color: #E9E9E9!important;
+}
+
+.bg-none {
+background-color: none!important;
+}
+
+.bg-plaster {
+  background-color: #CDCDCD!important;
+}
+
+.bg-water {
+  background-color: #88BBD6!important;
+}
+
+.text-linen {
+  color: #E9E9E9!important;
+}
+
+.text-ice {
+color: #99D3DF!important;
+}

@@ -33,13 +33,25 @@ class PortfolioController < ApplicationController
     redirect_if_not_user
 
     user = current_user
+    all_github_repos = user.all_github_repos
+    saved_user_repos = Repo.where(user: user)
     @portfolio = current_portfolio
+
+    if params[:refresh_repos] == "true"
+      new_github_repos = user.new_github_repos(all_github_repos)
+      @new_repos = Repo.make_from_github(user: user, github_repos: new_github_repos)
+      @unselected_repos = saved_user_repos - @portfolio.repos
+    else
+      @new_repos = []
+      @unselected_repos = []
+    end
+
     if !@portfolio.repos.empty?
       @repos = @portfolio.repos
-    elsif repos = Repo.where(user: user)
-      @repos = repos
+    elsif !saved_user_repos.empty?
+      @repos = saved_user_repos
     else
-      @repos = Repo.make_from_github(user: user)
+      @repos = Repo.make_from_github(user: user, github_repos: all_github_repos)
     end
 
     erb :'portfolios/edit'

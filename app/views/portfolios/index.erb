@@ -4,7 +4,11 @@
   <% @portfolios.each do |portfolio|%>
     <h4><%= portfolio.name %></h4>    
     <label>Created: </label><%= portfolio.created_at %><br>
-    <a href="/portfolios/<%= portfolio.id %>">View Portfolio Details</a><br>    
+    <a href="/portfolios/<%= portfolio.id %>">View Portfolio Details</a><br>
+    <form method="POST" action="/portfolios/<%=portfolio.id%>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete Portfolio</button>
+    </form>    
   <% end %>
 <% end %>
 <br>

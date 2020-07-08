@@ -2,14 +2,14 @@
 <p>Created: <%= @portfolio.created_at %></p>
 
 <% @portfolio.repos.each do |repo| %>
-  <h4><%= repo.name %></h4>
-  <label>Created: </label><%= repo.created_at %><br>  
-  <label>Last Updated: </label><%= repo.updated_at %><br>
-  <label>Github Url: </label><a href="<%= repo.github_url %>"><%= repo.github_url %></a><br>
-  <label>Description: </label><%= repo.description %><br>
-  <a href="/repos/<%=repo.id%>/edit">Edit Repo</a>
-  <br>
-  <br>
+  <dl>
+    <dt><%= repo.name %></dt>
+      <dd>Created: <%= repo.created_at %></dd>  
+      <dd>Last Updated: <%= repo.updated_at %></dd>
+      <dd>Github Url: <a href="<%= repo.github_url %>"><%= repo.github_url %></a></dd>
+      <dd>Description: <%= repo.description %></dd>
+      <dd><a href="/repos/<%=repo.id%>/edit">Edit Repo</a></dd>
+  </dl>
 <% end %>
 
 <form method="POST" action="/portfolios/<%=@portfolio.id%>">
