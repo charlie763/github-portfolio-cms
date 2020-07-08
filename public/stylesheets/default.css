@@ -28,6 +28,11 @@ background-color: none!important;
   background-color: #88BBD6!important;
 }
 
+.subtitle {
+  font-size: .5em;
+  font-weight: normal;
+}
+
 .text-linen {
   color: #E9E9E9!important;
 }
