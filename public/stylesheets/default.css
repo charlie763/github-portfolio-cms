@@ -1,11 +1,12 @@
 
 dd {
-  margin-left: .5rem;
-  margin-bottom: 0;
+  margin-left: 1.5rem;
+  margin-bottom: .5rem;
 }
 
 dt {
   margin-bottom: .25rem;
+  font-size: 1.5rem;
 }
 
 .bg-ice {
@@ -39,4 +40,8 @@ background-color: none!important;
 
 .text-ice {
 color: #99D3DF!important;
+}
+
+.text-plaster{
+  color:  #CDCDCD!important;;
 }
