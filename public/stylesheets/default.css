@@ -29,6 +29,10 @@ background-color: none!important;
   background-color: #88BBD6!important;
 }
 
+.no-bullets{
+  list-style: none;
+}
+
 .subtitle {
   font-size: .5em;
   font-weight: normal;
@@ -44,4 +48,12 @@ color: #99D3DF!important;
 
 .text-plaster{
   color:  #CDCDCD!important;;
+}
+
+.x-button {
+  background-color: transparent;
+  border-color: transparent;
+  position: relative;
+  top: -.25em;
+  left: -.25em;
 }

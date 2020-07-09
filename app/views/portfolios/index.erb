@@ -21,6 +21,9 @@
             <a class="btn btn-secondary btn-sm" href="/portfolios/<%= portfolio.id %>">View Details</a>
           </div>
           <div class="d-inline-block px-1">
+            <a class="btn btn-secondary btn-sm" href="/portfolios/<%= portfolio.id %>/edit">Edit</a>
+          </div>
+          <div class="d-inline-block px-1">
             <form method="POST" action="/portfolios/<%=portfolio.id%>">
               <input type="hidden" name="_method" value="DELETE">
               <button class="btn btn-secondary btn-sm" type="submit">Delete Portfolio</button>
