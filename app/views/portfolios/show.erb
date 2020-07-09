@@ -6,12 +6,12 @@
   </div>
   <div class="col-auto">
     <div class="d-inline-block">
-      <a class="btn btn-primary btn-sm" href="/portfolios/<%=@portfolio.id%>/edit">Edit Portfolio</a>
+      <a class="btn btn-secondary btn-sm" href="/portfolios/<%=@portfolio.id%>/edit">Edit Portfolio</a>
     </div>
     <div class="d-inline-block">
       <form method="POST" action="/portfolios/<%=@portfolio.id%>">
         <input type="hidden" name="_method" value="DELETE">
-        <button class="btn btn-primary btn-sm" type="submit">Delete Portfolio</button>
+        <button class="btn btn-secondary btn-sm" type="submit">Delete Portfolio</button>
       </form>
     </div>
   </div>
@@ -22,9 +22,9 @@
     <dt class="text-white"><%= repo.name %>
       <span class="text-linen subtitle ml-3">Last Updated: <%= repo.updated_at %></span>
     </dt>
-      <dd class="text-linen"><%= repo.description %></dd>
-      <dd><a class="text-plaster" href="<%= repo.github_url %>"><%= repo.github_url %></a></dd>
-      <dd><a class="btn btn-primary btn-sm mt-3" href="/repos/<%=repo.id%>/edit">Edit Repo</a></dd>
+      <dd class="text-linen font-italic"><%= repo.description %></dd>
+      <dd><a class="text-linen" href="<%= repo.github_url %>"><%= repo.github_url %></a></dd>
+      <dd><a class="btn btn-secondary btn-sm mt-3" href="/repos/<%=repo.id%>/edit">Edit Repo</a></dd>
   </dl>
 <% end %>
 
