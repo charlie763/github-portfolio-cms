@@ -14,7 +14,7 @@
     <% @portfolios.each do |portfolio|%>
       <dl>
         <dt class="text-white"><%= portfolio.name %>
-          <span class="text-linen subtitle ml-3">Created: <%= portfolio.created_at %></span>
+          <span class="text-linen subtitle ml-3">Created: <%= portfolio.display_created_at %></span>
         </dt>
         <dd class="py-2">
           <div class="d-inline-block px-1">

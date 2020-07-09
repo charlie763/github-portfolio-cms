@@ -4,11 +4,12 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    if user = User.find_by(username: params[:username]).authenticate(params[:password])
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/'
     else
-      @invalid_input = true
+      flash[:notice] = "Incorrect username or password"
       erb :'users/login'
     end
   end
@@ -23,12 +24,13 @@ class UserController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
-      @invalid_input = true
+    user = User.create(params)
+    if user.valid?
       erb :'users/signup'
     else
-      User.create(params)
-      redirect 'login'
+      error_hash = user.errors.messages
+      flash[:notice] = error_hash.map{|k,v| k.to_s + " " + v[0]}.join(" and ")
+      redirect '/signup'
     end
   end
 end

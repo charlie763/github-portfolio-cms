@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_165217) do
+ActiveRecord::Schema.define(version: 2020_07_09_202823) do
+
+  create_table "portfolio_displays", force: :cascade do |t|
+    t.string "name"
+    t.text "html"
+    t.text "stylesheet"
+    t.integer "portfolio_id"
+    t.index ["portfolio_id"], name: "index_portfolio_displays_on_portfolio_id"
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
@@ -32,8 +40,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_165217) do
     t.text "description"
     t.integer "user_id"
     t.integer "github_id"
-    t.string "created_at"
-    t.string "updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

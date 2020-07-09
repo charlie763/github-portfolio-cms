@@ -8,5 +8,6 @@ use Rack::MethodOverride
 use UserController
 use PortfolioController
 use RepoController
+use PortfolioDisplayController
 
 run ApplicationController

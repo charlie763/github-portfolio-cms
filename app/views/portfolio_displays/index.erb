@@ -1,0 +1,34 @@
+
+<div class="row justify-content-end py-3">
+  <div class="col-auto">
+    <a class="btn btn-secondary btn-sm" href="portfolio_displays/new">Make a New Display</a>
+  </div>
+</div>
+  <% if @portfolio_displays.empty? %>
+    <div class="row justify-content-center py-2">
+      <div class="col-auto">
+        <h4 class="text-white font-weight-normal">(No displays created yet)</h4>
+      </div>
+    </div>
+  <% else %>
+    <% @portfolio_displays.each do |display|%>
+      <dl>
+        <dt class="text-white"><%= display.name %>
+          <span class="text-linen subtitle ml-3">Created: <%= display.display_created_at %></span>
+        </dt>
+        <dd class="py-2">
+          <div class="d-inline-block px-1">
+            <a class="btn btn-secondary btn-sm" href="/portfolio_displays/<%= display.id %>">View Details</a>
+          </div>
+          <div class="d-inline-block px-1">
+            <form method="POST" action="/portfolio_displays/<%=display.id%>">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn btn-secondary btn-sm" type="submit">Delete Display</button>
+            </form>
+          </div>    
+        </dd>
+      </dl>    
+    <% end %>
+  <% end %>
+</div>
+
