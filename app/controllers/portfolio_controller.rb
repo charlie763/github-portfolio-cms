@@ -64,6 +64,13 @@ class PortfolioController < ApplicationController
     params[:repos].keys.each do |repo_id|
       portfolio.repos << Repo.find(repo_id.to_i)
     end
+
+    @portfolio = portfolio
+    portfolio.portfolio_displays.each do |display|
+      html = erb :'portfolios/show'
+      display.parse_html(html)
+      display.save
+    end
   
     redirect "/portfolios/#{portfolio.id}"
   end

@@ -18,8 +18,12 @@ class PortfolioDisplay < ActiveRecord::Base
     repo_buttons = doc.search("[id='edit-repo-button']")
     repo_buttons.remove
 
+    stylesheet = doc.search("[id='internal-stylesheet']").first
+    stylesheet['href']="/stylesheets/display.css"
+
     #get rid of main title, or just changet to Portfolio
-    #title = doc.search("[id='portfolio-title']")
+    title = doc.search("[id='portfolio-title']").first
+    title.content = "Portfolio"
 
     self.html = doc.to_html
   end

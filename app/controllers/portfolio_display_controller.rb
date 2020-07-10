@@ -24,6 +24,7 @@ class PortfolioDisplayController < ApplicationController
 
   get '/portfolio_displays/:id' do
     display = current_display
+    File.write('./public/stylesheets/display.css', display.stylesheet)
     html_w_overlay = display.add_overlay
     erb(html_w_overlay, options={layout: nil})
   end
