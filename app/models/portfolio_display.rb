@@ -37,4 +37,12 @@ class PortfolioDisplay < ActiveRecord::Base
     container.add_next_sibling(overlay)
     end.to_html
   end
+
+  def html_as_code
+    self.html.gsub("<","&lt;").gsub(">", "&gt;")
+  end
+
+  def code_as_html(html_code)
+    html_code.gsub("&lt;", "<").gsub("&gt;", ">")
+  end
 end

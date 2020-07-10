@@ -28,12 +28,17 @@ class PortfolioDisplayController < ApplicationController
     erb(html_w_overlay, options={layout: nil})
   end
 
-  get '/portfolio_displays/:id/edit' do
-
+  get '/portfolio_displays/:id/edit' do 
+    @display = current_display
+    erb :"portfolio_displays/edit"
   end
 
-  patch '/portfolio_displays/:id/edit' do
-
+  patch '/portfolio_displays/:id' do
+    display = current_display
+    display.html = display.code_as_html(params[:html_code])
+    display.stylesheet = params[:css_code]
+    display.save
+    redirect "portfolio_displays/#{display.id}"
   end
 
   delete '/portfolio_displays/:id' do
