@@ -23,4 +23,18 @@ class PortfolioDisplay < ActiveRecord::Base
 
     self.html = doc.to_html
   end
+
+  def add_overlay
+    Nokogiri::HTML(self.html).tap do |doc|
+    container = doc.search("[class='container']").first
+    overlay = <<-HTML
+      <div class='overlay'>
+        <p class='text-white'>This is what your portolio display would look like as a standalone page, for example, on your personal website.</p>
+        <a href="/portfolio_displays/#{self.id}/edit" class="btn btn-primary btn-sm text-white my-1">View Source Code</a>        
+        <a href="/portfolio_displays" class="btn btn-primary btn-sm text-white my-1">Back to Displays</a>        
+      </div>
+    HTML
+    container.add_next_sibling(overlay)
+    end.to_html
+  end
 end

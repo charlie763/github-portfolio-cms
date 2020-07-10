@@ -13,9 +13,7 @@
   <% else %>
     <% @portfolio_displays.each do |display|%>
       <dl>
-        <dt class="text-white"><%= display.name %>
-          <span class="text-linen subtitle ml-3">Created: <%= display.display_created_at %></span>
-        </dt>
+        <dt class="text-white"><%= display.name %></dt>
         <dd class="py-2">
           <div class="d-inline-block px-1">
             <a class="btn btn-secondary btn-sm" href="/portfolio_displays/<%= display.id %>">View Details</a>

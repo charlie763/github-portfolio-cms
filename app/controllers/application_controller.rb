@@ -34,6 +34,7 @@ class ApplicationController < Sinatra::Base
     def current_portfolio
       Portfolio.find(params[:id])
     end
+
   end
 
 end 

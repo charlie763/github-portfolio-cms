@@ -33,6 +33,17 @@ background-color: none!important;
   list-style: none;
 }
 
+.overlay{
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  background-color: grey;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  padding: 1rem;
+  width: 25%;
+  border-radius: .25rem;
+}
+
 .subtitle {
   font-size: .5em;
   font-weight: normal;
