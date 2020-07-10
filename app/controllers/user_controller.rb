@@ -26,11 +26,11 @@ class UserController < ApplicationController
   post '/signup' do
     user = User.create(params)
     if user.valid?
-      erb :'users/signup'
+      redirect '/login'
     else
       error_hash = user.errors.messages
       flash[:notice] = error_hash.map{|k,v| k.to_s + " " + v[0]}.join(" and ")
-      redirect '/login'
+      redirect '/signup'
     end
   end
 end

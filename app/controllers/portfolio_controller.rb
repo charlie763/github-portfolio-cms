@@ -38,7 +38,11 @@ class PortfolioController < ApplicationController
     if params[:refresh_repos] == "true"
       new_github_repos = user.new_github_repos(all_github_repos)
       @new_repos = Repo.make_from_github(user: user, github_repos: new_github_repos)
-      @unselected_repos = saved_user_repos - @portfolio.repos
+      if @portfolio.repos.empty?
+        @unselected_repos = []
+      else
+        @unselected_repos = saved_user_repos - @portfolio.repos
+      end
     else
       @new_repos = []
       @unselected_repos = []
