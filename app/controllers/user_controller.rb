@@ -30,7 +30,7 @@ class UserController < ApplicationController
     else
       error_hash = user.errors.messages
       flash[:notice] = error_hash.map{|k,v| k.to_s + " " + v[0]}.join(" and ")
-      redirect '/signup'
+      redirect '/login'
     end
   end
 end
