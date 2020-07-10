@@ -1,17 +1,17 @@
 <div class="row justify-content-center pt-3">
   <div class="col-auto">
-    <h2 class="text-white">Edit Display Code</h2>
+    <h2 class="primary-text">Edit Display Code</h2>
   </div>
 </div>
 
 <form method="POST" action="/portfolio_displays/<%=@display.id%>">
   <input type="hidden" name="_method" value="PATCH">
   <div class="form-group">
-    <label class="text-white" for="html-code">html: </label>
+    <label class="primary-text" for="html-code">html: </label>
     <textarea class="form-control" name="html_code" id="html-code" rows="8"><%=@display.html_as_code%></textarea>
   </div>
   <div class="form-group">
-    <label class="text-white" for="css-code">css: </label>
+    <label class="primary-text" for="css-code">css: </label>
     <textarea class="form-control" name="css_code" id="css-code" rows="8"><%=@display.stylesheet%></textarea>
   </div>
   <div class="form-group">

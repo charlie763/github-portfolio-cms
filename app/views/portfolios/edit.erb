@@ -1,7 +1,7 @@
   <div class="row py-3">
     <div class="col-auto">
-      <h2 class="text-white">Portfolio: <%= @portfolio.name %>
-        <span class="text-linen subtitle ml-3">Created: <%= @portfolio.display_created_at %></span>
+      <h2 class="primary-text">Portfolio: <%= @portfolio.name %>
+        <span class="secondary-text subtitle ml-3">Created: <%= @portfolio.display_created_at %></span>
       </h2>
     </div>
   </div>
@@ -10,11 +10,11 @@
       <form method="POST" action="/portfolios/<%= @portfolio.id %>">
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group col-6 ml-n3">
-          <label class="text-linen" for="portfolio-name-update">Update Name: </label>
+          <label class="secondary-text" for="portfolio-name-update">Update Name: </label>
           <input id="portfolio-name-update" class="form-control" type="text" name="name" placeholder="<%= @portfolio.name %>">
         </div>
         <div class="form-group mt-2 mb-0">
-          <label class="text-white">Select repos to include in your portfolio:</label>
+          <label class="primary-text">Select repos to include in your portfolio:</label>
         </div>
         <div class="form-group">
           <a class="btn btn-secondary btn-sm" href="/portfolios/<%= @portfolio.id %>/edit?refresh_repos=true">Refresh Github Repos</a>
@@ -23,7 +23,7 @@
           <ul class="no-bullets">
             <% @repos.each do |repo| %>
               <li id="list_item_<%= repo.id %>"><input type="checkbox" <%= "checked" if @portfolio.repos.include?(repo) %> name="repos[<%= repo.id %>]">
-                  <span class="text-linen ml-2"><%= repo.name %></span>
+                  <span class="secondary-text ml-2"><%= repo.name %></span>
                   <button class="x-button" type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
               </li>
           <% end %>
@@ -31,11 +31,11 @@
          </div> 
         <div class="form-group">            
           <% unless @new_repos.empty? %>
-            <label class="text-white">New Repos</label>
+            <label class="primary-text">New Repos</label>
             <ul class="no-bullets">
               <% @new_repos.each do |repo| %>
                 <li id="list_item_<%= repo.id %>"><input type="checkbox" name="repos[<%= repo.id %>]">
-                    <span class="text-linen ml-2"><%= repo.name %></span>
+                    <span class="secondary-text ml-2"><%= repo.name %></span>
                     <button class="x-button" type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
                 </li>
             <% end %>
@@ -44,11 +44,11 @@
         </div>
         <div class="form-group">  
           <% unless @unselected_repos.empty? %>
-            <label class="text-white">Unselected Repos</label>
+            <label class="primary-text">Unselected Repos</label>
             <ul class="no-bullets">
               <% @unselected_repos.each do |repo| %>
                 <li id="list_item_<%= repo.id %>"><input type="checkbox" name="repos[<%= repo.id %>]">
-                    <span class="text-linen ml-2"><%= repo.name %></span>
+                    <span class="secondary-text ml-2"><%= repo.name %></span>
                     <button class="x-button" type="button" onclick="document.getElementById('list_item_<%= repo.id %>').style.display = 'none';">x</button>
                 </li>
             <% end %>

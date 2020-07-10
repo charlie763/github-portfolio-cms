@@ -1,0 +1,43 @@
+
+.bg-ice {
+  background-color: #99D3DF!important;
+}
+
+.bg-linen {
+  background-color: #E9E9E9!important;
+}
+
+.bg-plaster {
+  background-color: #CDCDCD!important;
+}
+
+.no-bullets{
+  list-style: none;
+}
+
+.overlay{
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  background-color: grey;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  padding: 1rem;
+  width: 25%;
+  border-radius: .25rem;
+}
+
+.text-ice {
+color: #99D3DF!important;
+}
+
+.text-plaster{
+  color:  #CDCDCD!important;;
+}
+
+.x-button {
+  background-color: transparent;
+  border-color: transparent;
+  position: relative;
+  top: -.25em;
+  left: -.25em;
+}

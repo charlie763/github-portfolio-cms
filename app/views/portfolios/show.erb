@@ -1,8 +1,8 @@
 <div id="portfolio-display">
   <div class="row justify-content-between py-3">
     <div class="col-auto">
-      <h2 id="portfolio-title" class="text-white">Portfolio - <%= @portfolio.name %>
-        <span class="text-linen subtitle ml-3">Created: <%= @portfolio.display_created_at %></span>
+      <h2 id="portfolio-title" class="primary-text">Portfolio - <%= @portfolio.name %>
+        <span class="secondary-text subtitle ml-3">Created: <%= @portfolio.display_created_at %></span>
       </h2>
     </div>
     <div id="modify-portfolio-buttons" class="col-auto">
@@ -23,11 +23,11 @@
 
   <% @portfolio.repos.each do |repo| %>
     <dl>
-      <dt class="text-white"><%= repo.name %>
-        <span class="text-linen subtitle ml-3">Last Updated: <%= repo.display_updated_at %></span>
+      <dt class="primary-text"><%= repo.name %>
+        <span class="secondary-text subtitle ml-3">Last Updated: <%= repo.display_updated_at %></span>
       </dt>
-        <dd class="text-linen font-italic"><%= repo.description %></dd>
-        <dd><a class="text-linen" href="<%= repo.github_url %>"><%= repo.github_url %></a></dd>
+        <dd class="secondary-text font-italic"><%= repo.description %></dd>
+        <dd><a class="secondary-text" href="<%= repo.github_url %>"><%= repo.github_url %></a></dd>
         <dd id="edit-repo-button"><a class="btn btn-secondary btn-sm mt-3" href="/repos/<%=repo.id%>/edit">Edit Repo</a></dd>
     </dl>
   <% end %>

@@ -7,13 +7,13 @@
   <% if @portfolio_displays.empty? %>
     <div class="row justify-content-center py-2">
       <div class="col-auto">
-        <h4 class="text-white font-weight-normal">(No displays created yet)</h4>
+        <h4 class="primary-text font-weight-normal">(No displays created yet)</h4>
       </div>
     </div>
   <% else %>
     <% @portfolio_displays.each do |display|%>
       <dl>
-        <dt class="text-white"><%= display.name %></dt>
+        <dt class="primary-text"><%= display.name %></dt>
         <dd class="py-2">
           <div class="d-inline-block px-1">
             <a class="btn btn-secondary btn-sm" href="/portfolio_displays/<%= display.id %>">View</a>

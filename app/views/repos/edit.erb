@@ -1,16 +1,16 @@
 <div class="row py-3">
-  <h2 class="text-white"><%= @repo.name%></h2>
+  <h2 class="primary-text"><%= @repo.name%></h2>
 </div>
 
 <form method="POST" action="/repos/<%=@repo.id%>">
   <input type="hidden" name="_method" value="PATCH">
   <div class="form-group">
-    <label class="text-white" for="update_name_input">Update Name: </label>
+    <label class="primary-text" for="update_name_input">Update Name: </label>
     <input id="update_name_input" type="text" name="name" placeholder="<%= @repo.name%>">
   </div>
 
   <div class="form-group">
-    <label class="text-white" for="update_repo_description">Update Description: </label>
+    <label class="primary-text" for="update_repo_description">Update Description: </label>
     <textarea class="text-muted" id="update_repo_description" name="description" rows="8" cols="100"><%= @repo.description %></textarea>
   </div>
   

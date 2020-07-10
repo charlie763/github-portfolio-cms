@@ -33,9 +33,9 @@ class PortfolioDisplay < ActiveRecord::Base
     container = doc.search("[class='container']").first
     overlay = <<-HTML
       <div class='overlay'>
-        <p class='text-white'>This is what your portolio display would look like as a standalone page, for example, on your personal website.</p>
-        <a href="/portfolio_displays/#{self.id}/edit" class="btn btn-primary btn-sm text-white my-1">View Source Code</a>        
-        <a href="/portfolio_displays" class="btn btn-primary btn-sm text-white my-1">Back to Displays</a>        
+        <p class='primary-text'>This is what your portolio display would look like as a standalone page, for example, on your personal website.</p>
+        <a href="/portfolio_displays/#{self.id}/edit" class="btn btn-primary btn-sm primary-text my-1">View Source Code</a>        
+        <a href="/portfolio_displays" class="btn btn-primary btn-sm primary-text my-1">Back to Displays</a>        
       </div>
     HTML
     container.add_next_sibling(overlay)
