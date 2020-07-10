@@ -77,7 +77,7 @@ class PortfolioController < ApplicationController
 
   delete '/portfolios/:id' do
     portfolio = current_portfolio
-    redirect_if_not_user(portfolio)
+    redirect_if_not_user(resource: portfolio)
 
     portfolio.delete
     redirect '/portfolios'    

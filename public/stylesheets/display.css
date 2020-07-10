@@ -9,7 +9,7 @@ dt {
 }
 
 .bg-ice {
-  background-color: #99D3DF!important;
+  background-color: fuscia!important;
 }
 
 .bg-linen {
@@ -30,6 +30,17 @@ background-color: none!important;
 
 .no-bullets{
   list-style: none;
+}
+
+.overlay{
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  background-color: grey;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  padding: 1rem;
+  width: 25%;
+  border-radius: .25rem;
 }
 
 .subtitle {
