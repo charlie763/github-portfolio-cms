@@ -12,7 +12,7 @@ end
 configure :production do
   set :database, {
     adapter: "postgresql", 
-    database: "postgres://fbpqriyaiczmjm:9fd47ad0ea85ca2c8484abd54aec8dcdd8e5cb27df8738a784d46fef30586a92@ec2-52-202-66-191.compute-1.amazonaws.com:5432/d1od5ulj86qsup"
+    url: "postgres://fbpqriyaiczmjm:9fd47ad0ea85ca2c8484abd54aec8dcdd8e5cb27df8738a784d46fef30586a92@ec2-52-202-66-191.compute-1.amazonaws.com:5432/d1od5ulj86qsup"
   }
 end
 
