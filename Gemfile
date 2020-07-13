@@ -17,7 +17,7 @@ gem 'dotenv'
 gem 'rack-flash3', :require => 'rack-flash'
 gem 'nokogiri'
 
-groupd :development do
+group :development do
   gem 'sqlite3'
   gem 'pry'
 end
