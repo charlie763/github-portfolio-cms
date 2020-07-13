@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash
     set :session_secret, "#{ENV['SESSION_SECRET']}"
     set :views, "app/views"
+    set :public_folder, 'public'
   end
 
   get '/' do
