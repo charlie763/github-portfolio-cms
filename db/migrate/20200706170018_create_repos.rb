@@ -6,7 +6,7 @@ class CreateRepos < ActiveRecord::Migration[6.0]
         t.string :github_url
         t.text :description
         t.integer :user_id
-        t.timestamps
+        t.timestamps, null: true
       end
   end
 end
