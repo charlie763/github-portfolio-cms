@@ -17,10 +17,10 @@ gem 'dotenv'
 gem 'rack-flash3', :require => 'rack-flash'
 gem 'nokogiri'
 
-# group :development do
-#   gem 'sqlite3'
-#   gem 'pry'
-# end
+group :development do
+  gem 'sqlite3'
+  gem 'pry'
+end
 
 group :production do
   gem 'pg'
