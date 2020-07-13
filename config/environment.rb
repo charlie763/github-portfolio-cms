@@ -1,6 +1,6 @@
 require 'dotenv/load'
 require 'open-uri'
-#ENV['SINATRA_ENV'] ||= "development"
+ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
 Bundler.require(:default, ENV['APP_ENV'].to_sym)
