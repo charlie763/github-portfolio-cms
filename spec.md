@@ -11,10 +11,10 @@ Specs:
 - [x] Ensure that users can't modify content created by other users - This was implemented for Portolios and Repos using the `#redirect_if_not_user` helper method defined in the main application controller. I did not have time to implement this for portfolio_displays but may do so after submission
 - [x] Include user input validations - input validations were completed using ActiveRecord macros, and I created a custom validation for github_username attribute that checks to see if a github username exists via the github api 
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new) - validation failures are displayed via the rack-flash gem
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message - mostly, I got carried away a couple of times and worked on some little things that may not have been included in the main commit message.
