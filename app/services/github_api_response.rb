@@ -6,6 +6,11 @@ class GithubApiResponse
     @github_username = github_username
   end
 
+  def test_response
+    path = "#{BASE_PATH}/users/#{github_username}"
+    URI.parse(path).open
+  end
+
   def get_repos
     page = 1
     full_response = []
@@ -22,9 +27,5 @@ class GithubApiResponse
     full_response.map do |repo| 
       repo.select{|k,v| desired_keys.include?(k)}
     end
-  end
-
-  def get_repo_details
-
   end
 end

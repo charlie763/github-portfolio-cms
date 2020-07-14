@@ -5,6 +5,18 @@ class User < ActiveRecord::Base
   has_many :portfolios
   has_many :repos
 
+  def valid?
+    api = GithubApiResponse.new(github_username: self.github_username)
+    begin
+      api.test_response
+      super && true
+    rescue OpenURI::HTTPError
+      super
+      self.errors.messages["github username"] = ["not found"]
+      false
+    end
+  end
+  
   def all_github_repos
     GithubApiResponse.new(github_username: self.github_username).get_repos
   end

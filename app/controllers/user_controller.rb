@@ -24,8 +24,9 @@ class UserController < ApplicationController
   end
 
   post '/signup' do
-    user = User.create(params)
-    if user.valid?
+    user = User.new(params)
+    if user.valid? 
+      user.save
       redirect '/login'
     else
       error_hash = user.errors.messages
