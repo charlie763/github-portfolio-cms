@@ -12,7 +12,7 @@ end
 configure :production do
   set :database, {
     adapter: "postgresql", 
-    url: ENV['DB_URL']
+    url: ENV['DATABASE_URL']
   }
 end
 
