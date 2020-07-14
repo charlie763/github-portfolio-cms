@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :portfolios
   has_many :repos
 
-  def valid?
+  def valid?(context = nil)
     api = GithubApiResponse.new(github_username: self.github_username)
     begin
       api.test_response
