@@ -24,6 +24,7 @@ class PortfolioDisplayController < ApplicationController
 
   get '/portfolio_displays/:id' do
     display = current_display
+    redirect_if_not_user(resource: Portfolio.find(display.portfolio.id))
     File.write('./public/stylesheets/display.css', display.stylesheet)
     html_w_overlay = display.add_overlay
     erb(html_w_overlay, options={layout: nil})
@@ -31,11 +32,13 @@ class PortfolioDisplayController < ApplicationController
 
   get '/portfolio_displays/:id/edit' do 
     @display = current_display
+    redirect_if_not_user(resource: Portfolio.find(@display.portfolio.id))
     erb :"portfolio_displays/edit"
   end
 
   patch '/portfolio_displays/:id' do
     display = current_display
+    redirect_if_not_user(resource: Portfolio.find(display.portfolio.id))
     display.html = display.code_as_html(params[:html_code])
     display.stylesheet = params[:css_code]
     display.save
@@ -44,6 +47,7 @@ class PortfolioDisplayController < ApplicationController
 
   delete '/portfolio_displays/:id' do
     display = current_display
+    redirect_if_not_user(resource: Portfolio.find(display.portfolio.id))
 
     display.delete
     redirect '/portfolio_displays'    

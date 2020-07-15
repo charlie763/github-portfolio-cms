@@ -17,12 +17,12 @@
 
 .overlay{
   position: fixed;
-  top: 5rem;
-  right: 5rem;
+  top: 25rem;
+  right: 10%;
   background-color: grey;
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
   padding: 1rem;
-  width: 25%;
+  width: 80%;
   border-radius: .25rem;
 }
 
@@ -40,4 +40,12 @@ color: #99D3DF!important;
   position: relative;
   top: -.25em;
   left: -.25em;
+}
+
+@media (min-width: 600px){
+  .overlay{
+    top: 2rem;
+    right: 4rem;
+    width: 25%;
+  }  
 }
