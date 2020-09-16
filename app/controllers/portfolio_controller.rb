@@ -5,12 +5,10 @@ class PortfolioController < ApplicationController
   end
 
   get '/portfolios/new' do
-
     erb :'portfolios/new'
   end
 
   post '/portfolios' do
-
     @portfolio = Portfolio.new(params)
     @portfolio.user = current_user
     @portfolio.save
@@ -33,28 +31,27 @@ class PortfolioController < ApplicationController
     user = current_user
     all_github_repos = user.all_github_repos
     saved_user_repos = Repo.where(user: user)
-   
 
-    if params[:refresh_repos] == "true"
+    if params[:refresh_repos] == 'true'
       new_github_repos = user.new_github_repos(all_github_repos)
       @new_repos = Repo.make_from_github(user: user, github_repos: new_github_repos)
-      if @portfolio.repos.empty?
-        @unselected_repos = []
-      else
-        @unselected_repos = saved_user_repos - @portfolio.repos
-      end
+      @unselected_repos = if @portfolio.repos.empty?
+                            []
+                          else
+                            saved_user_repos - @portfolio.repos
+                          end
     else
       @new_repos = []
       @unselected_repos = []
     end
 
-    if !@portfolio.repos.empty?
-      @repos = @portfolio.repos
-    elsif !saved_user_repos.empty?
-      @repos = saved_user_repos
-    else
-      @repos = Repo.make_from_github(user: user, github_repos: all_github_repos)
-    end
+    @repos = if !@portfolio.repos.empty?
+               @portfolio.repos
+             elsif !saved_user_repos.empty?
+               saved_user_repos
+             else
+               Repo.make_from_github(user: user, github_repos: all_github_repos)
+             end
 
     erb :'portfolios/edit'
   end
@@ -63,7 +60,7 @@ class PortfolioController < ApplicationController
     portfolio = current_portfolio
     redirect_if_not_user(resource: portfolio)
 
-    portfolio.update(name: params[:name]) unless params[:name] == ""
+    portfolio.update(name: params[:name]) unless params[:name] == ''
     portfolio.repos.clear
     params[:repos].keys.each do |repo_id|
       portfolio.repos << Repo.find(repo_id.to_i)
@@ -75,7 +72,7 @@ class PortfolioController < ApplicationController
       display.parse_html(html)
       display.save
     end
-  
+
     redirect "/portfolios/#{portfolio.id}"
   end
 
@@ -84,6 +81,6 @@ class PortfolioController < ApplicationController
     redirect_if_not_user(resource: portfolio)
 
     portfolio.delete
-    redirect '/portfolios'    
+    redirect '/portfolios'
   end
 end

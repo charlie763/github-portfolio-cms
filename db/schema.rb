@@ -10,44 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_202823) do
-
-  create_table "portfolio_displays", force: :cascade do |t|
-    t.string "name"
-    t.text "html"
-    t.text "stylesheet"
-    t.integer "portfolio_id"
-    t.index ["portfolio_id"], name: "index_portfolio_displays_on_portfolio_id"
+ActiveRecord::Schema.define(version: 20_200_709_202_823) do
+  create_table 'portfolio_displays', force: :cascade do |t|
+    t.string 'name'
+    t.text 'html'
+    t.text 'stylesheet'
+    t.integer 'portfolio_id'
+    t.index ['portfolio_id'], name: 'index_portfolio_displays_on_portfolio_id'
   end
 
-  create_table "portfolios", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'portfolios', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "portfolios_repos", force: :cascade do |t|
-    t.integer "portfolio_id"
-    t.integer "repo_id"
-    t.index ["portfolio_id"], name: "index_portfolios_repos_on_portfolio_id"
-    t.index ["repo_id"], name: "index_portfolios_repos_on_repo_id"
+  create_table 'portfolios_repos', force: :cascade do |t|
+    t.integer 'portfolio_id'
+    t.integer 'repo_id'
+    t.index ['portfolio_id'], name: 'index_portfolios_repos_on_portfolio_id'
+    t.index ['repo_id'], name: 'index_portfolios_repos_on_repo_id'
   end
 
-  create_table "repos", force: :cascade do |t|
-    t.string "name"
-    t.string "github_url"
-    t.text "description"
-    t.integer "user_id"
-    t.integer "github_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'repos', force: :cascade do |t|
+    t.string 'name'
+    t.string 'github_url'
+    t.text 'description'
+    t.integer 'user_id'
+    t.integer 'github_id'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "github_username"
+  create_table 'users', force: :cascade do |t|
+    t.string 'username'
+    t.string 'password_digest'
+    t.string 'github_username'
   end
-
 end

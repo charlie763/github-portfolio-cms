@@ -8,13 +8,13 @@ class PortfolioDisplayController < ApplicationController
   post '/portfolio_displays' do
     @portfolio = Portfolio.find(session[:last_viewed_portfolio_id])
     html = erb :'portfolios/show'
-    display = PortfolioDisplay.new(params).tap do |d| 
+    display = PortfolioDisplay.new(params).tap do |d|
       d.portfolio = @portfolio
       d.parse_html(html)
-      d.set_stylesheet("default.css")
+      d.set_stylesheet('default.css')
     end
     display.save
-    
+
     redirect "portfolio_displays/#{display.id}"
   end
 
@@ -27,10 +27,10 @@ class PortfolioDisplayController < ApplicationController
     redirect_if_not_user(resource: Portfolio.find(display.portfolio.id))
     File.write('./public/stylesheets/display.css', display.stylesheet)
     html_w_overlay = display.add_overlay
-    erb(html_w_overlay, options={layout: nil})
+    erb(html_w_overlay, options = { layout: nil })
   end
 
-  get '/portfolio_displays/:id/edit' do 
+  get '/portfolio_displays/:id/edit' do
     @display = current_display
     redirect_if_not_user(resource: Portfolio.find(@display.portfolio.id))
     erb :"portfolio_displays/edit"
@@ -50,7 +50,7 @@ class PortfolioDisplayController < ApplicationController
     redirect_if_not_user(resource: Portfolio.find(display.portfolio.id))
 
     display.delete
-    redirect '/portfolio_displays'    
+    redirect '/portfolio_displays'
   end
 
   helpers do

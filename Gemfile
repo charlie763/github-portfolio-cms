@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'activerecord', :require => 'active_record'
-gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'sinatra'
-gem 'require_all'
+gem 'activerecord', require: 'active_record'
 gem 'bcrypt'
-gem 'rake'
-gem 'rack'
-gem 'shotgun'
-gem 'json'
 gem 'dotenv'
-gem 'rack-flash3', :require => 'rack-flash'
+gem 'json'
 gem 'nokogiri'
+gem 'rack'
+gem 'rack-flash3', require: 'rack-flash'
+gem 'rake'
+gem 'require_all'
+gem 'shotgun'
+gem 'sinatra'
+gem 'sinatra-activerecord', require: 'sinatra/activerecord'
 
 group :development do
-  gem 'sqlite3'
   gem 'pry'
+  gem 'sqlite3'
 end
 
 group :production do

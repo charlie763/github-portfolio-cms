@@ -2,8 +2,8 @@ class ApplicationController < Sinatra::Base
   configure do
     enable :sessions
     use Rack::Flash
-    set :session_secret, "#{ENV['SESSION_SECRET']}"
-    set :views, "app/views"
+    set :session_secret, (ENV['SESSION_SECRET']).to_s
+    set :views, 'app/views'
     set :public_folder, 'public'
   end
 
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
-    def redirect_if_not_user(resource:) 
+    def redirect_if_not_user(resource:)
       if !logged_in?
         redirect '/login'
       elsif resource.user.id != session[:user_id]
@@ -35,7 +35,5 @@ class ApplicationController < Sinatra::Base
     def current_portfolio
       Portfolio.find(params[:id])
     end
-
   end
-
-end 
+end
